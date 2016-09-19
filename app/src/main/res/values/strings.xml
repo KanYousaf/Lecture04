@@ -10,4 +10,9 @@
     <string name="search_menu">Search</string>
     <string name="play_store_menu">PlayStore</string>
     <string name="exit_menu">Exit</string>
+    <string name="home_name">Home</string>
+    <string name="settings_name">Settings</string>
+    <string name="exit_name">Exit</string>
+    <string name="search_name">Search</string>
+    <string name="play_store_name">Google Play Store</string>
 </resources>

@@ -17,12 +17,14 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+    String name;
     private Button button_press_id;
     private EditText editText_user_id, editText_user_password;
     private TextView textView_display_result;
     private RadioGroup tmnt_rg_id;
     private RadioButton tmnt_rb_don, tmnt_rb_leo, tmnt_rb_mike, tmnt_rb_raph;
     private ImageView tmnt_image_view_id;
+    private RatingBar rate_tmnt;
     int count = 0;
 
     @Override
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         tmnt_rg_id = (RadioGroup) this.findViewById(R.id.tmnt_rg);
         tmnt_rg_id.setVisibility(View.INVISIBLE);
 
+
         //Radio Button's IDs
 
         tmnt_rb_don = (RadioButton) this.findViewById(R.id.rb_don);
@@ -48,16 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
         editText_user_id = (EditText) this.findViewById(R.id.edit_text_name);
         editText_user_password = (EditText) this.findViewById(R.id.edit_text_password);
+        rate_tmnt=(RatingBar)this.findViewById(R.id.rate_tmnt);
 
+        rate_tmnt.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                rate_tmnt.setRating(rating);
+            }
+        });
 
-
-//        button_press_id.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count++;
-//                textView_display_result.setText(String.valueOf(count));
-//            }
-//        });
     }
 
     public void button_play_pressed(View view) {
@@ -88,6 +90,55 @@ public class MainActivity extends AppCompatActivity {
 
     public void display_user_details(View view) {
         Toast.makeText(MainActivity.this, "The user name is: " + editText_user_id.getText() + " ,Password: " +
-                editText_user_password.getText(), Toast.LENGTH_SHORT).show();
+                editText_user_password.getText()+", rating is: "+rate_tmnt.getRating()
+                +", and tmnt character is: "+tmnt_name(), Toast.LENGTH_SHORT).show();
+    }
+
+    public String tmnt_name(){
+        if(tmnt_rb_don.isChecked())
+        {
+            name=String.valueOf(tmnt_rb_don.getText());
+        }
+        else if(tmnt_rb_leo.isChecked()){
+            name=String.valueOf(tmnt_rb_leo.getText());
+        }
+        else if(tmnt_rb_mike.isChecked()){
+            name=String.valueOf(tmnt_rb_mike.getText());
+        }
+        else {
+            name=String.valueOf(tmnt_rb_raph.getText());
+        }
+        return name;
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_main_activity,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home:
+                Toast.makeText(this,"Hello Home", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.settings:
+                Toast.makeText(this,"Hello Settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.search:
+                Toast.makeText(this,"Hello Search", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.exit:
+                Toast.makeText(this,"Hello Exit", Toast.LENGTH_SHORT).show();
+                finish();
+                break;
+            case R.id.playstore:
+                Toast.makeText(this,"Hello Google", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

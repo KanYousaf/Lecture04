@@ -111,6 +111,14 @@
             android:id="@+id/edit_text_password"
             android:inputType="textPassword" />
 
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="2"
+        android:stepSize="0.5"
+        android:id="@+id/rate_tmnt" />
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
