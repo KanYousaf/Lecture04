@@ -5,11 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="press">Play</string>
     <string name="display_result">hello</string>
-    <string name="home_menu">Home</string>
-    <string name="settings_menu">Settings</string>
-    <string name="search_menu">Search</string>
-    <string name="play_store_menu">PlayStore</string>
-    <string name="exit_menu">Exit</string>
     <string name="home_name">Home</string>
     <string name="settings_name">Settings</string>
     <string name="exit_name">Exit</string>

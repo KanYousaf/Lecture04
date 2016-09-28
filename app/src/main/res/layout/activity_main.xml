@@ -26,6 +26,11 @@
             android:background="@drawable/press_button_bg"
             android:layout_margin="5dp"
             android:onClick="button_play_pressed"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/display_user_name"
+            android:text="@string/display_result" />
 
         <TextView
             android:layout_height="wrap_content"
@@ -115,9 +120,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
-        android:rating="2"
+        android:rating="2.5"
         android:stepSize="0.5"
         android:id="@+id/rate_tmnt" />
+
 
     <Button
             android:layout_width="wrap_content"
